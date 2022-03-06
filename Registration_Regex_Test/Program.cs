@@ -8,6 +8,9 @@ namespace Registration_Regex_Test
         static void Main(string[] args)
         {
             Console.WriteLine("MS test");
+            RegistrationPattern registrationPattern = new RegistrationPattern();
+            registrationPattern.ValidateFirstName("Rahul");
+
         }
     }
 }
