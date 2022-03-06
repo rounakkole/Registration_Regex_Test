@@ -18,7 +18,7 @@ namespace Registration_Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GivenRight_FirstName_ReturnFalse()
+        public void GivenWrong_FirstName_ReturnFalse()
         {
             bool actual = registrationPattern.ValidateFirstName("raj");
             bool expected = false;
@@ -36,7 +36,7 @@ namespace Registration_Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GivenRight_LastName_ReturnFalse()
+        public void GivenWrong_LastName_ReturnFalse()
         {
             bool actual = registrationPattern.ValidateLastName("Li");
             bool expected = false;
@@ -54,7 +54,7 @@ namespace Registration_Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GivenRight_Email_ReturnFalse()
+        public void GivenWrong_Email_ReturnFalse()
         {
             bool actual = registrationPattern.ValidateEmail("abc@abc@gmail.com");
             bool expected = false;
@@ -91,7 +91,7 @@ namespace Registration_Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GivenRight_Password_ReturnFalse()
+        public void GivenWrong_Password_ReturnFalse()
         {
             bool actual = registrationPattern.ValidatePassword("abCD12");
             bool expected = false;
