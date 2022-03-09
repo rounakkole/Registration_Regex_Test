@@ -44,19 +44,35 @@ namespace Registration_Test
             Assert.AreEqual(expected, actual);
         }
 
-
         [TestMethod]
-        public void GivenRight_Email_ReturnTrue()
+        [DataRow("abc@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc.100@yahoo.com")]
+        [DataRow("abc111@abc.com")]
+        [DataRow("abc-100@abc.net")]
+        [DataRow("abc.100@abc.com.au")]
+        [DataRow("abc@1.com")]
+        [DataRow("abc@gmail.com.com")]
+        [DataRow("abc+100@gmail.com")]
+        public void GivenRight_Email_ReturnTrue(string EmialId)
         {
-            bool actual = registrationPattern.ValidateEmail("abc@yahoo.com");
+            bool actual = registrationPattern.ValidateEmail(EmialId);
+            //"abc@yahoo.com"
             bool expected = true;
 
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
-        public void GivenWrong_Email_ReturnFalse()
+        [DataRow("abc@.com.my")]
+        [DataRow(".abc@abc.com")]
+        [DataRow("abc@abc@gmail.com")]
+        [DataRow("abc..2002@gmail.com")]
+        [DataRow("abc@gmail.com.1a")]
+        [DataRow("abc@gmail.com.aa.au")]
+        public void GivenWrong_Email_ReturnFalse(string EmialId)
         {
-            bool actual = registrationPattern.ValidateEmail("abc@abc@gmail.com");
+            bool actual = registrationPattern.ValidateEmail(EmialId);
             bool expected = false;
 
             Assert.AreEqual(expected, actual);
