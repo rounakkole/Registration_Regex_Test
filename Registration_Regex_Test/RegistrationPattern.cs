@@ -16,30 +16,65 @@ namespace Registration_Regex_Test
         public static string mobileNo = "^91[/ /][6-9]{1}[0-9]{9}$";
         public static string password = "^(?=.*[!@#$%^&*]{1})(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@$!%*#?&]{8,}$";
 
-        public bool ValidateFirstName(string data)
+        public string ValidateFirstName(string data)
         {
-            bool result = Regex.IsMatch(data, firstName) ? true : false;
-            return result;
+            bool result = Regex.IsMatch(data, firstName);
+            if (result)
+            {
+                return "valid firstName";
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_FIRSTNAME, "invalid firstName");
+            }
         }
-        public bool ValidateLastName(string data)
+        public string ValidateLastName(string data)
         {
-            bool result = Regex.IsMatch(data, lastName) ? true : false;
-            return result;
+            bool result = Regex.IsMatch(data, lastName);
+            if (result)
+            {
+                return "valid lastName";
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_LASTNAME, "invalid lastName");
+            }
         }
-        public bool ValidateEmail(string data)
+        public string ValidateEmail(string data)
         {
-            bool result = Regex.IsMatch(data, email) ? true : false;
-            return result;
+            bool result = Regex.IsMatch(data, email);
+            if (result)
+            {
+                return "valid email";
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_EMAIL, "invalid email");
+            }
         }
-        public bool ValidateMobileNo(string data)
+        public string ValidateMobileNo(string data)
         {
-            bool result = Regex.IsMatch(data, mobileNo) ? true : false;
-            return result;
+            bool result = Regex.IsMatch(data, mobileNo);
+            if (result)
+            {
+                return "valid mobileNo";
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_MOBILE_NO, "invalid mobileNo");
+            }
         }
-        public bool ValidatePassword(string data)
+        public string ValidatePassword(string data)
         {
-            bool result = Regex.IsMatch(data, password) ? true : false;
-            return result;
+            bool result = Regex.IsMatch(data, password);
+            if (result)
+            {
+                return "valid password";
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_PASSWORD, "invalid password");
+            }
         }
 
     }

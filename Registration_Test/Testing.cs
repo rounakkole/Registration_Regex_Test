@@ -12,36 +12,47 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_FirstName_ReturnTrue()
         {
-            bool actual = registrationPattern.ValidateFirstName("Rahul");
-            bool expected = true;
+            string actual = registrationPattern.ValidateFirstName("Rahul");
+            string expected = "valid firstName";
 
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
         public void GivenWrong_FirstName_ReturnFalse()
         {
-            bool actual = registrationPattern.ValidateFirstName("raj");
-            bool expected = false;
-
-            Assert.AreEqual(expected, actual);
+           try
+            {
+                string actual = registrationPattern.ValidateFirstName("raj");
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("invalid firstName", ex.Message);
+            }
         }
 
 
         [TestMethod]
         public void GivenRight_LastName_ReturnTrue()
         {
-            bool actual = registrationPattern.ValidateLastName("Kohli");
-            bool expected = true;
+            string actual = registrationPattern.ValidateLastName("Kohli");
+            string expected = "valid lastName";
 
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
         public void GivenWrong_LastName_ReturnFalse()
         {
-            bool actual = registrationPattern.ValidateLastName("Li");
-            bool expected = false;
+            try
+            {
+                string actual = registrationPattern.ValidateLastName("Li");
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("invalid lastName", ex.Message);
+            }
 
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -56,9 +67,8 @@ namespace Registration_Test
         [DataRow("abc+100@gmail.com")]
         public void GivenRight_Email_ReturnTrue(string EmialId)
         {
-            bool actual = registrationPattern.ValidateEmail(EmialId);
-            //"abc@yahoo.com"
-            bool expected = true;
+            string actual = registrationPattern.ValidateEmail(EmialId);
+            string expected = "valid email";
 
             Assert.AreEqual(expected, actual);
         }
@@ -72,28 +82,38 @@ namespace Registration_Test
         [DataRow("abc@gmail.com.aa.au")]
         public void GivenWrong_Email_ReturnFalse(string EmialId)
         {
-            bool actual = registrationPattern.ValidateEmail(EmialId);
-            bool expected = false;
-
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                string actual = registrationPattern.ValidateEmail(EmialId);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("invalid email", ex.Message);
+            }
         }
 
 
         [TestMethod]
         public void GivenRight_mobileNo_ReturnTrue()
         {
-            bool actual = registrationPattern.ValidateMobileNo("91 9876543210");
-            bool expected = true;
+            string actual = registrationPattern.ValidateMobileNo("91 9876543210");
+            string expected = "valid mobileNo";
 
             Assert.AreEqual(expected, actual);
         }
+
+
         [TestMethod]
         public void GivenWrong_mobileNo_ReturnFalse()
         {
-            bool actual = registrationPattern.ValidateMobileNo("987654321");
-            bool expected = false;
-
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                string actual = registrationPattern.ValidateMobileNo("987654321");
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("invalid mobileNo", ex.Message);
+            }
         }
 
 
@@ -101,18 +121,23 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_Password_ReturnTrue()
         {
-            bool actual = registrationPattern.ValidatePassword("abcDE#1234");
-            bool expected = true;
+            string actual = registrationPattern.ValidatePassword("abcDE#1234");
+            string expected = "valid password";
 
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
         public void GivenWrong_Password_ReturnFalse()
         {
-            bool actual = registrationPattern.ValidatePassword("abCD12");
-            bool expected = false;
-
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                string actual = registrationPattern.ValidatePassword("abCD12");
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("invalid password", ex.Message);
+            }
         }
     }
 }
