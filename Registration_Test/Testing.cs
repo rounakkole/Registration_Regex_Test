@@ -12,7 +12,7 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_FirstName_ReturnTrue()
         {
-            string actual = registrationPattern.ValidateFirstName("Rahul");
+            string actual = registrationPattern.LValidateFirstName("Rahul");
             string expected = "valid firstName";
 
             Assert.AreEqual(expected, actual);
@@ -23,7 +23,7 @@ namespace Registration_Test
         {
            try
             {
-                string actual = registrationPattern.ValidateFirstName("raj");
+                string actual = registrationPattern.LValidateFirstName("raj");
             }
             catch (CustomException ex)
             {
@@ -35,7 +35,7 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_LastName_ReturnTrue()
         {
-            string actual = registrationPattern.ValidateLastName("Kohli");
+            string actual = registrationPattern.LValidateLastName("Kohli");
             string expected = "valid lastName";
 
             Assert.AreEqual(expected, actual);
@@ -46,7 +46,7 @@ namespace Registration_Test
         {
             try
             {
-                string actual = registrationPattern.ValidateLastName("Li");
+                string actual = registrationPattern.LValidateLastName("Li");
             }
             catch (CustomException ex)
             {
@@ -67,7 +67,7 @@ namespace Registration_Test
         [DataRow("abc+100@gmail.com")]
         public void GivenRight_Email_ReturnTrue(string EmialId)
         {
-            string actual = registrationPattern.ValidateEmail(EmialId);
+            string actual = registrationPattern.LValidateEmail(EmialId);
             string expected = "valid email";
 
             Assert.AreEqual(expected, actual);
@@ -84,7 +84,7 @@ namespace Registration_Test
         {
             try
             {
-                string actual = registrationPattern.ValidateEmail(EmialId);
+                string actual = registrationPattern.LValidateEmail(EmialId);
             }
             catch (CustomException ex)
             {
@@ -96,7 +96,7 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_mobileNo_ReturnTrue()
         {
-            string actual = registrationPattern.ValidateMobileNo("91 9876543210");
+            string actual = registrationPattern.LValidateMobileNo("91 9876543210");
             string expected = "valid mobileNo";
 
             Assert.AreEqual(expected, actual);
@@ -108,7 +108,7 @@ namespace Registration_Test
         {
             try
             {
-                string actual = registrationPattern.ValidateMobileNo("987654321");
+                string actual = registrationPattern.LValidateMobileNo("987654321");
             }
             catch (CustomException ex)
             {
@@ -121,7 +121,7 @@ namespace Registration_Test
         [TestMethod]
         public void GivenRight_Password_ReturnTrue()
         {
-            string actual = registrationPattern.ValidatePassword("abcDE#1234");
+            string actual = registrationPattern.LValidatePassword("abcDE#1234");
             string expected = "valid password";
 
             Assert.AreEqual(expected, actual);
@@ -132,7 +132,7 @@ namespace Registration_Test
         {
             try
             {
-                string actual = registrationPattern.ValidatePassword("abCD12");
+                string actual = registrationPattern.LValidatePassword("abCD12");
             }
             catch (CustomException ex)
             {

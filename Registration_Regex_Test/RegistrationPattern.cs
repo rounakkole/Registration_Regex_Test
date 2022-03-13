@@ -16,6 +16,14 @@ namespace Registration_Regex_Test
         public static string mobileNo = "^91[/ /][6-9]{1}[0-9]{9}$";
         public static string password = "^(?=.*[!@#$%^&*]{1})(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@$!%*#?&]{8,}$";
 
+
+        public Func<string, string> LValidateFirstName = data => Regex.IsMatch(data, firstName) ? "valid firstName" : throw new CustomException(CustomException.ExceptionType.INVALID_FIRSTNAME, "invalid firstName");
+        public Func<string, string> LValidateLastName = data => Regex.IsMatch(data, lastName) ? "valid lastName" : throw new CustomException(CustomException.ExceptionType.INVALID_LASTNAME, "invalid lastName");
+        public Func<string, string> LValidateEmail = data => Regex.IsMatch(data, email) ? "valid email" : throw new CustomException(CustomException.ExceptionType.INVALID_EMAIL, "invalid email");
+        public Func<string, string> LValidateMobileNo = data => Regex.IsMatch(data, mobileNo) ? "valid mobileNo" : throw new CustomException(CustomException.ExceptionType.INVALID_MOBILE_NO, "invalid mobileNo");
+        public Func<string, string> LValidatePassword = data => Regex.IsMatch(data, password) ? "valid password" : throw new CustomException(CustomException.ExceptionType.INVALID_PASSWORD, "invalid password");
+
+
         public string ValidateFirstName(string data)
         {
             bool result = Regex.IsMatch(data, firstName);
@@ -76,6 +84,5 @@ namespace Registration_Regex_Test
                 throw new CustomException(CustomException.ExceptionType.INVALID_PASSWORD, "invalid password");
             }
         }
-
     }
 }
